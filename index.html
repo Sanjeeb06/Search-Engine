@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine Website Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section class = 'header'>
+    <div class="main">
+        <img src="logo.png" alt="Vii Logo">
+        <div class="searchBx">
+            <input type="text" class="query" placeholder="Serach">
+            <div class="icons">
+                <div><img src="search.png" alt="Search Icon"></div>
+                <div><img src="mic.png" alt="Microphone Icon"></div>
+            </div>
+        </div>
+        <div class="button">
+            <button class="searchBtn">Search Here</button>
+        </div>
+    </div>
+</section>
+
+    <script>
+        let query = document.querySelector('.query');
+        let searchBtn = document.querySelector('.searchBtn');
+
+        searchBtn.onclick = function() {
+            let url = 'https://www.google.com/search?q=' + encodeURIComponent(query.value);
+            window.open(url, '_self'); // Opens the URL in a new tab
+        };
+    </script>
+</body>
+</html>
+
+
+
+

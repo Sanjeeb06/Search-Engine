@@ -1,8 +1,8 @@
-# Search-Engine
+Search-Engine
 This project is a robust search engine built using [insert tech stack, e.g., Python, Elasticsearch, etc.]. It is designed to efficiently index and search through large datasets, offering fast and relevant results for both structured and unstructured data.
 
 Key Components of a Search Engine
-Web Crawlers (Spiders or Bots):
+Web Crawlers:
 These are automated programs that browse the internet systematically to discover and index new web pages. They follow links from one page to another, gathering data about content.
 
 Indexing:

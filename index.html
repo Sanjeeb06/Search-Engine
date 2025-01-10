@@ -7,22 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <section class = 'header'>
-    <div class="main">
-        <img src="logo.png" alt="Vii Logo">
-        <div class="searchBx">
-            <input type="text" class="query" placeholder="Serach">
-            <div class="icons">
-                <div><img src="search.png" alt="Search Icon"></div>
-                <div><img src="mic.png" alt="Microphone Icon"></div>
+    <section class='header'>
+        <div class="main">
+            <img src="logo.png" alt="Vii Logo">
+            <div class="searchBx">
+                <input type="text" class="query" placeholder="Search">
+                <div class="icons">
+                    <div><img src="search.png" alt="Search Icon"></div>
+                    <div><img src="mic.png" alt="Microphone Icon"></div>
+                </div>
+            </div>
+            <div class="button">
+                <button class="searchBtn">Search Here</button>
+            </div>
+            
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="gpa_calculator.html">GPA CALCULATOR</a></li>
+                    <li><a href="facultyinfo.html">FACULTYINFO</a></li>
+                    <li><a href="pyqs.html">PYQ's</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
             </div>
         </div>
-        <div class="button">
-            <button class="searchBtn">Search Here</button>
-        </div>
-    </div>
-</section>
+    </section>
 
     <script>
         let query = document.querySelector('.query');
@@ -30,12 +39,9 @@
 
         searchBtn.onclick = function() {
             let url = 'https://www.google.com/search?q=' + encodeURIComponent(query.value);
-            window.open(url, '_self'); // Opens the URL in a new tab
+            window.open(url, '_self'); // Opens the URL in the same tab
         };
     </script>
 </body>
 </html>
-
-
-
 

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #8360c3, #2ebf91);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contact-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .contact-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .contact-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-container label {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-container input, 
+        .contact-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-container button {
+            padding: 10px;
+            font-size: 1.1rem;
+            color: #fff;
+            background: #2ebf91;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-container button:hover {
+            background: #229c74;
+        }
+
+        .contact-container .success, .contact-container .error {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .contact-container .success {
+            color: #4caf50;
+        }
+
+        .contact-container .error {
+            color: #f44336;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+
+
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">Back to Home</a>
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
+            <p class="success">Your message has been sent successfully!</p>
+        <form action="contact.php" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email address" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</body>
+</html>

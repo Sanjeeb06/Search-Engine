@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .course {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .course input {
+            width: 48%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .add-course {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .add-course:hover {
+            background: #0056b3;
+        }
+
+        .calculate {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .calculate:hover {
+            background: #1c7430;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">Back to Home</a>
+    <div class="container">
+        <h1>GPA Calculator</h1>
+        <div id="courses">
+            <div class="course">
+                <input type="text" class="grade" placeholder="Grade (e.g., 4.0)">
+                <input type="text" class="credits" placeholder="Credit Hours">
+            </div>
+        </div>
+        <button class="add-course" onclick="addCourse()">Add Course</button>
+        <button class="calculate" onclick="calculateGPA()">Calculate GPA</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        
+        function addCourse() {
+            const courses = document.getElementById('courses');
+            const course = document.createElement('div');
+            course.classList.add('course');
+            course.innerHTML = `
+                <input type="text" class="grade" placeholder="Grade (e.g., 4.0)">
+                <input type="text" class="credits" placeholder="Credit Hours">
+            `;
+            courses.appendChild(course);
+        }
+
+        function calculateGPA() {
+            const grades = document.querySelectorAll('.grade');
+            const credits = document.querySelectorAll('.credits');
+            let totalPoints = 0;
+            let totalCredits = 0;
+
+            for (let i = 0; i < grades.length; i++) {
+                const grade = parseFloat(grades[i].value);
+                const credit = parseFloat(credits[i].value);
+
+                if (!isNaN(grade) && !isNaN(credit)) {
+                    totalPoints += grade * credit;
+                    totalCredits += credit;
+                }
+            }
+
+            const gpa = totalCredits ? (totalPoints / totalCredits).toFixed(2) : 0;
+            document.getElementById('result').textContent = `Your GPA: ${gpa}`;
+        }
+    </script>
+</body>
+</html>

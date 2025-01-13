@@ -21,3 +21,4 @@ Results are ranked based on relevance to the query. Search engines like Google u
 User Interface:
 The interface displays the search results, often as a list of web pages, images, videos, or other types of content, based on your query.
 
+

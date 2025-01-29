@@ -127,7 +127,6 @@
             `;
             courses.appendChild(course);
         }
-
         function calculateGPA() {
             const grades = document.querySelectorAll('.grade');
             const credits = document.querySelectorAll('.credits');
@@ -143,7 +142,6 @@
                     totalCredits += credit;
                 }
             }
-
             const gpa = totalCredits ? (totalPoints / totalCredits).toFixed(2) : 0;
             document.getElementById('result').textContent = `Your GPA: ${gpa}`;
         }
